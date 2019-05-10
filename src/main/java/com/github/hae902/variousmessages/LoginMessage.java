@@ -30,6 +30,6 @@ public class LoginMessage implements Listener{
 	public void logout (PlayerQuitEvent event) {
 		Player player = event.getPlayer();
 		String name = player.getDisplayName();
-		Bukkit.broadcastMessage(ChatColor.YELLOW + name  + " は にげだした！");
+		event.setQuitMessage(ChatColor.YELLOW + name  + " は にげだした！");
 	}
 }
