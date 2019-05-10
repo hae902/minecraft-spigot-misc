@@ -17,6 +17,7 @@ public class Main extends JavaPlugin implements Listener{
 	@Override
 	public void onEnable() {
 		getServer().getPluginManager().registerEvents(this, this);
+		getServer().getPluginManager().registerEvents(new KillPlayer(), this);
 	}
 
 	@EventHandler
