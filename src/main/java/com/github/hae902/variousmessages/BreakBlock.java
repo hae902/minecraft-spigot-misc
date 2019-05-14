@@ -1,5 +1,6 @@
 package com.github.hae902.variousmessages;
 
+import org.bukkit.Sound;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -18,6 +19,11 @@ public class BreakBlock implements Listener{
 		case GRASS_BLOCK:
 			config.set(loca, point + 1);
 			break;
+		case STONE:
+		case GRANITE:
+		case DIORITE:
+		case ANDESITE:
+			config.set(loca, point + 5);
 		default:
 			break;
 		}
@@ -25,6 +31,7 @@ public class BreakBlock implements Listener{
 		if (point >= 10) {
 			player.giveExp((int) Math.floor(point / 10));
 			config.set(loca, point % 10);
+			player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.1f, 1);
 		}
 	}
 }
